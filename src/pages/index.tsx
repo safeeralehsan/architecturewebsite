@@ -1,17 +1,19 @@
 import { useState, useRef, useEffect } from 'react';
 import Head from 'next/head'
 import Image from 'next/image'
+import { motion, useScroll } from 'framer-motion';
 import Loading from '@/components/loading';
+import NavigationBar from '@/components/navigationBar';
 
 
 
 export default function Home() {
-  const [ isLoading, setIsLoading ] = useState(true)
+  const [ isLoading, setIsLoading ] = useState(true);
 
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false);
-    },3000)
+    },2000)
   },[])
 
   return (
@@ -24,16 +26,37 @@ export default function Home() {
       </Head>
       {isLoading ? 
         <Loading /> :
-        <div className='absolute w-screen h-screen overflow-y-hidden'>
-          <img 
-            src='/images/testbackground.jpg'
-            className='absolute z-10 w-screen object-cover -translate-y-16' 
-          />
-          <img 
-            src='/images/wedesignlogo.png'
-            className='absolute z-10 w-20 mt-8 ml-16' 
-          />
-        </div>
+        <motion.div 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.25 }}
+        >
+          <NavigationBar/>
+          <div className='h-screen'>
+            <img 
+              src='/images/testbackground.jpg'
+              className='absolute z-0 w-screen h-screen object-cover' 
+            />
+          </div>
+          <div className='flex justify-center items-center h-screen'>
+            <div className='absolute z-0 overflow-y-hidden'>
+              <motion.p
+                className='text-[250px] text-gray-100 font-semibold font-sans text-center tracking-[0.5em]'
+                initial = {{ y: 180 }}
+                whileInView = {{ y: 0 }}
+                viewport = {{ once: true}}
+                transition={{
+                  type: "spring",
+                  bounce: 0.1,
+                  duration: 2,
+                  delay: 0.5,
+                }}
+              >
+                About
+              </motion.p>
+            </div>
+          </div>
+        </motion.div>
       }
     </>
   )
