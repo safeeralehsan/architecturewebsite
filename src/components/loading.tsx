@@ -12,6 +12,7 @@ export default function Loading() {
   useEffect(() => {
     setTimeout(() => {
       const isLastLetter = letterToDisplayIndex.current === lettersToLoopThrough.length - 1 ? true : false;
+      
       if(isLastLetter){
         letterToDisplayIndex.current = 0;
       } else {

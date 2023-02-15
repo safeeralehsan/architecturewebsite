@@ -23,10 +23,10 @@ export default function HeroSection() {
                         whileTap = {{ scale: 0.8 }}
                     >
                     <span> */}
-                        <a href='https://www.facebook.com/wedesignstudiobd/' target="_blank">
+                        <a href='https://www.facebook.com/wedesignstudiobd/' target="_blank" rel="noreferrer">
                             <GrFacebookOption className='text-white hover:text-gray-300 transition-colors cursor-pointer mr-8' />
                         </a>
-                        <a href='https://www.instagram.com/we.design.bd/' target="_blank">
+                        <a href='https://www.instagram.com/we.design.bd/' target="_blank" rel="noreferrer">
                             <GrInstagram className='text-white hover:text-gray-300 transition-colors cursor-pointer mr-8' />
                         </a>
                 </div>

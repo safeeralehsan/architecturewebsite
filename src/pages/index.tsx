@@ -4,7 +4,6 @@ import Image from 'next/image'
 import { motion, useScroll } from 'framer-motion';
 import Loading from '@/components/loading';
 import NavigationBar from '@/components/navigationBar';
-import WavyText from '@/components/wavytext';
 import HeroSection from '@/components/herosection';
 
 
