@@ -4,6 +4,8 @@ import Image from 'next/image'
 import { motion, useScroll } from 'framer-motion';
 import Loading from '@/components/loading';
 import NavigationBar from '@/components/navigationBar';
+import WavyText from '@/components/wavytext';
+import HeroSection from '@/components/herosection';
 
 
 
@@ -24,6 +26,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+
       {isLoading ? 
         <Loading /> :
         <motion.div 
@@ -31,15 +34,10 @@ export default function Home() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.25 }}
         >
-          <NavigationBar/>
-          <div className='h-screen'>
-            <img 
-              src='/images/testbackground.jpg'
-              className='absolute z-0 w-screen h-screen object-cover' 
-            />
-          </div>
+          <NavigationBar />
+          <HeroSection />
           <div className='flex justify-center items-center h-screen'>
-            <div className='absolute z-0 overflow-y-hidden'>
+            <div className='absolute z-20 overflow-y-hidden'>
               <motion.p
                 className='text-[250px] text-gray-100 font-semibold font-sans text-center tracking-[0.5em]'
                 initial = {{ y: 180 }}

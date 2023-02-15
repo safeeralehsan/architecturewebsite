@@ -21,23 +21,23 @@ export default function NavigationBar() {
     return(
         <>
             <motion.div 
-                className={`fixed w-screen z-10 h-24 flex justify-between items-center ${navbarBackgroundColor}`}
+                className={`fixed w-screen z-40 h-24 flex justify-between items-center ${navbarBackgroundColor}`}
                 style={{ }}
             >
                 <span>
                     <motion.img 
                         src='/images/wedesignlogo.png'
-                        className='w-20 ml-16'
+                        className='w-20 ml-16 cursor-pointer'
                         whileTap={{ scale: 0.9 }}
                     />
                 </span>
                 <span className='mr-24'>
-                    <span className='mr-14 text-white hover:text-gray-300 font-bold md:text-sm text-xs cursor-pointer'>Projects</span>
-                    <span className='mr-14 text-white hover:text-gray-300 font-bold md:text-sm text-xs cursor-pointer'>About</span>
-                    <span className='mr-14 text-white hover:text-gray-300 font-bold md:text-sm text-xs cursor-pointer'>Media</span>
-                    <span className='mr-14 text-white hover:text-gray-300 font-bold md:text-sm text-xs cursor-pointer'>Blog</span>
-                    <span className='mr-14 text-white hover:text-gray-300 font-bold md:text-sm text-xs cursor-pointer'>Careers</span>
-                    <span className='mr-14 text-white hover:text-gray-300 font-bold md:text-sm text-xs cursor-pointer'>Contact</span>
+                    <span className='mr-14 text-white hover:text-gray-300 font-bold md:text-sm text-xs cursor-pointer transition-colors'>Projects</span>
+                    <span className='mr-14 text-white hover:text-gray-300 font-bold md:text-sm text-xs cursor-pointer transition-colors'>About</span>
+                    <span className='mr-14 text-white hover:text-gray-300 font-bold md:text-sm text-xs cursor-pointer transition-colors'>Media</span>
+                    <span className='mr-14 text-white hover:text-gray-300 font-bold md:text-sm text-xs cursor-pointer transition-colors'>Blog</span>
+                    <span className='mr-14 text-white hover:text-gray-300 font-bold md:text-sm text-xs cursor-pointer transition-colors'>Careers</span>
+                    <span className='mr-14 text-white hover:text-gray-300 font-bold md:text-sm text-xs cursor-pointer transition-colors'>Contact</span>
                 </span>
             </motion.div>
         </>
