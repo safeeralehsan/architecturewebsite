@@ -19,14 +19,15 @@ export default function ComingSoon(){
                     />
                 </div>
                 {
-                    [...Array(numberOfComingSoonRows)].map(() => {
+                    [...Array(numberOfComingSoonRows)].map((c, i) => {
                         return(
-                            <div className="relative z-30 w-full h-8">
-                                {[...Array(numberOfComingSoonRows)].map((e, i) => {
+                            <div className="relative z-30 w-full h-8" key={'row'+i}>
+                                {[...Array(numberOfComingSoonRows)].map((d, j) => {
                                     return (
                                         <motion.span
-                                            initial = {{ x: -255 + (255*i) }}
-                                            animate = {{ x: 0 + (255*i) }}
+                                            key = {'column'+j}
+                                            initial = {{ x: -255 + (255*j) }}
+                                            animate = {{ x: 0 + (255*j) }}
                                             transition = {{ 
                                                 duration: 5,
                                                 repeat: Infinity
