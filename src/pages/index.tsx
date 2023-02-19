@@ -12,12 +12,6 @@ import WavyText from '@/components/wavytext';
 export default function Home() {
   const [ isLoading, setIsLoading ] = useState(true);
 
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     setIsLoading(false);
-  //   },2000)
-  // },[])
-
   return (
     <>
       <Head>
@@ -26,15 +20,16 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
       {isLoading && <Loading /> }
       <motion.div 
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.25 }}
+        className = {isLoading ? 'invisible' : ''} 
       >
         <NavigationBar />
         <HeroSection
+          isLoading = {isLoading}
           setIsLoading = {setIsLoading}
         />
         <div className='flex justify-center items-center h-screen'>
