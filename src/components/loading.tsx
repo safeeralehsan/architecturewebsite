@@ -26,11 +26,11 @@ export default function Loading() {
 
   return (
     <>
-      <div className='w-screen h-screen flex flex-row justify-center items-center'>
-        <p className='absolute z-0 text-[150px] font-mono font-extrabold text-gray-100'>
+      <div className='absolute z-60 w-screen h-screen flex flex-row justify-center items-center'>
+        <p className='absolute z-60 text-[150px] font-mono font-extrabold text-gray-100'>
           {letterToDisplay}
         </p>
-        <p className='absolute z-10 text-7xl font-mono font-extrabold'>
+        <p className='absolute z-70 text-7xl font-mono font-extrabold'>
           {letterToDisplay}
         </p> 
       </div>    

@@ -1,18 +1,24 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import WavyText from "./wavytext";
 import { GrFacebookOption, GrInstagram } from 'react-icons/gr'
 import Link from 'next/link';
 import Image from 'next/image';
 
-export default function HeroSection() {
+type Props = {
+    setIsLoading: React.Dispatch<React.SetStateAction<boolean>>
+}
+
+export default function HeroSection({ setIsLoading } : Props) {
+    
     return(
         <>
             <div className='relative h-screen'>
                 <Image
-                    src="/images/testbackground2.jpg"
+                    src='/images/testbackground2.jpg'
                     alt='Cafe Dolce'
                     fill
+                    onLoadingComplete={(e) => { setIsLoading(false) }}
                     className='absolute z-0 object-cover'
                 />
                 <div className='absolute z-10 w-full h-full bg-black opacity-50' />

@@ -12,11 +12,11 @@ import WavyText from '@/components/wavytext';
 export default function Home() {
   const [ isLoading, setIsLoading ] = useState(true);
 
-  useEffect(() => {
-    setTimeout(() => {
-      setIsLoading(false);
-    },2000)
-  },[])
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     setIsLoading(false);
+  //   },2000)
+  // },[])
 
   return (
     <>
@@ -27,27 +27,27 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      {isLoading ? 
-        <Loading /> :
-        <motion.div 
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.25 }}
-        >
-          <NavigationBar />
-          <HeroSection />
-          <div className='flex justify-center items-center h-screen'>
-            <WavyText 
-              text="ABOUT"
-              lowerLetterByPixels={200}
-              delay = {0.5}
-              duration = {0.125}
-              delayChildrenBy = {0.5}
-              tailwindclasses="text-[250px] text-gray-100 font-semibold font-sans text-center tracking-[0.5em]"
-            />
-          </div>
-        </motion.div>
-      }
+      {isLoading && <Loading /> }
+      <motion.div 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.25 }}
+      >
+        <NavigationBar />
+        <HeroSection
+          setIsLoading = {setIsLoading}
+        />
+        <div className='flex justify-center items-center h-screen'>
+          <WavyText 
+            text="ABOUT"
+            lowerLetterByPixels={200}
+            delay = {0.5}
+            duration = {0.125}
+            delayChildrenBy = {0.5}
+            tailwindclasses="text-[250px] text-gray-100 font-semibold font-sans text-center tracking-[0.5em]"
+          />
+        </div>
+      </motion.div>
     </>
   )
 }
