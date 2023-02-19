@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import Head from 'next/head'
 import Image from 'next/image'
-import { motion, useScroll } from 'framer-motion';
+import { motion, useScroll, AnimatePresence } from 'framer-motion';
 import Loading from '@/components/loading';
 import NavigationBar from '@/components/navigationBar';
 import HeroSection from '@/components/herosection';
@@ -20,12 +20,21 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      {isLoading && <Loading /> }
+      <AnimatePresence>
+        {isLoading && (
+          <motion.div
+            
+            initial={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition = {{ duration: 5 }} 
+          >
+            <Loading />
+          </motion.div>
+        )}
+      </AnimatePresence>
       <motion.div 
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
         transition={{ duration: 0.25 }}
-        className = {isLoading ? 'invisible' : ''} 
+        className = {isLoading ? 'opacity-0' : 'transition-opacity duration-500 opacity-100'} 
       >
         <NavigationBar />
         <HeroSection
