@@ -3,16 +3,19 @@ import { motion } from 'framer-motion';
 import WavyText from "./wavytext";
 import { GrFacebookOption, GrInstagram } from 'react-icons/gr'
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function HeroSection() {
     return(
         <>
-            <div className='h-screen'>
-                <div className='absolute z-10 w-full h-screen bg-black opacity-50' />
-                <img 
-                src='/images/testbackground2.jpg'
-                className='absolute z-0 w-screen h-screen object-cover' 
+            <div className='relative h-screen'>
+                <Image
+                    src="/images/testbackground2.jpg"
+                    alt='Cafe Dolce'
+                    fill
+                    className='absolute z-0 object-cover'
                 />
+                <div className='absolute z-10 w-full h-full bg-black opacity-50' />
                 <div className='absolute z-20 flex h-4/5 items-center'>
                     <div className='ml-60 p-10'>
                         <WavyText text="Cafe Dolce" lowerLetterByPixels={60} tailwindclasses='font-serif text-white text-7xl font-semibold my-3 opacity' />
