@@ -5,6 +5,7 @@ import { motion, useScroll } from 'framer-motion';
 import Loading from '@/components/loading';
 import NavigationBar from '@/components/navigationBar';
 import HeroSection from '@/components/herosection';
+import WavyText from '@/components/wavytext';
 
 
 
@@ -36,22 +37,14 @@ export default function Home() {
           <NavigationBar />
           <HeroSection />
           <div className='flex justify-center items-center h-screen'>
-            <div className='absolute z-20 overflow-y-hidden'>
-              <motion.p
-                className='text-[250px] text-gray-100 font-semibold font-sans text-center tracking-[0.5em]'
-                initial = {{ y: 180 }}
-                whileInView = {{ y: 0 }}
-                viewport = {{ once: true}}
-                transition={{
-                  type: "spring",
-                  bounce: 0.1,
-                  duration: 2,
-                  delay: 0.5,
-                }}
-              >
-                About
-              </motion.p>
-            </div>
+            <WavyText 
+              text="ABOUT"
+              lowerLetterByPixels={200}
+              delay = {0.5}
+              duration = {0.125}
+              delayChildrenBy = {0.5}
+              tailwindclasses="text-[250px] text-gray-100 font-semibold font-sans text-center tracking-[0.5em]"
+            />
           </div>
         </motion.div>
       }

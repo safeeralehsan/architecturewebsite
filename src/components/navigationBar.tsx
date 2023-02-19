@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
+import Link from 'next/link';
 
 export default function NavigationBar() {
     const { scrollY } = useScroll();
@@ -32,12 +33,24 @@ export default function NavigationBar() {
                     />
                 </span>
                 <span className='mr-24'>
-                    <span className='mr-14 text-white hover:text-gray-300 font-bold md:text-sm text-xs cursor-pointer transition-colors'>Projects</span>
-                    <span className='mr-14 text-white hover:text-gray-300 font-bold md:text-sm text-xs cursor-pointer transition-colors'>About</span>
-                    <span className='mr-14 text-white hover:text-gray-300 font-bold md:text-sm text-xs cursor-pointer transition-colors'>Media</span>
-                    <span className='mr-14 text-white hover:text-gray-300 font-bold md:text-sm text-xs cursor-pointer transition-colors'>Blog</span>
-                    <span className='mr-14 text-white hover:text-gray-300 font-bold md:text-sm text-xs cursor-pointer transition-colors'>Careers</span>
-                    <span className='mr-14 text-white hover:text-gray-300 font-bold md:text-sm text-xs cursor-pointer transition-colors'>Contact</span>
+                    <Link href="../comingsoon">
+                        <span className='mr-14 text-white hover:text-gray-300 font-bold md:text-sm text-xs cursor-pointer transition-colors'>Projects</span>
+                    </Link>
+                    <Link href="../comingsoon">
+                        <span className='mr-14 text-white hover:text-gray-300 font-bold md:text-sm text-xs cursor-pointer transition-colors'>About</span>
+                    </Link>
+                    <Link href="../comingsoon">
+                        <span className='mr-14 text-white hover:text-gray-300 font-bold md:text-sm text-xs cursor-pointer transition-colors'>Media</span>
+                    </Link>
+                    <Link href="../comingsoon">
+                        <span className='mr-14 text-white hover:text-gray-300 font-bold md:text-sm text-xs cursor-pointer transition-colors'>Blog</span>
+                    </Link>
+                    <Link href="../comingsoon">
+                        <span className='mr-14 text-white hover:text-gray-300 font-bold md:text-sm text-xs cursor-pointer transition-colors'>Careers</span>
+                    </Link>
+                    <Link href="../comingsoon">
+                        <span className='mr-14 text-white hover:text-gray-300 font-bold md:text-sm text-xs cursor-pointer transition-colors'>Contact</span>
+                    </Link>
                 </span>
             </motion.div>
         </>

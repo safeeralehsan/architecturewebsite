@@ -14,7 +14,7 @@ export default function HeroSection() {
                 />
                 <div className='absolute z-20 flex h-4/5 items-center'>
                     <div className='ml-60 p-10'>
-                        <WavyText text="Cafe Dolce" tailwindclasses='font-serif text-white text-7xl font-semibold my-3 opacity' />
+                        <WavyText text="Cafe Dolce" lowerLetterByPixels={60} tailwindclasses='font-serif text-white text-7xl font-semibold my-3 opacity' />
                         <span className='text-white font-semibold hover:text-gray-300 transition-colors cursor-pointer ml-2 mt-10'>View Project</span>
                     </div>
                 </div>
