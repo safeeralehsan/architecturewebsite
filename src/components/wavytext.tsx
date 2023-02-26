@@ -1,10 +1,10 @@
-import { FC } from "react";
-import { motion, Variants, HTMLMotionProps } from "framer-motion";
+import { FC, useRef } from "react";
+import { motion, Variants, HTMLMotionProps, useInView } from "framer-motion";
 
 interface Props extends HTMLMotionProps<"div"> {
   text: string;
   tailwindclasses: string;
-  lowerLetterByPixels : number;
+  lowerLetterByPixels: number;
   delay?: number;
   delayChildrenBy?: number;
   duration?: number;
@@ -13,8 +13,8 @@ interface Props extends HTMLMotionProps<"div"> {
 const WavyText: FC<Props> = ({
   text,
   delay = 0,
-  delayChildrenBy = 0,
-  duration = 0.05,
+  delayChildrenBy = 0.1,
+  duration = 0.1,
   lowerLetterByPixels,
   tailwindclasses
 }: Props) => {
@@ -32,34 +32,35 @@ const WavyText: FC<Props> = ({
 
   const child: Variants = {
     hidden: {
-        opacity: 1,
-        y: 60,
-        // transition: {
-        //     type: "spring",
-        //     damping: 10,
-        //     stiffness: 2
-        // }
+      opacity: 1,
+      y: 60,
+      // transition: {
+      //     type: "spring",
+      //     damping: 10,
+      //     stiffness: 2
+      // }
     },
     visible: {
-        opacity: 1,
-        y: 0,
-        transition: {
-            type: "easeIn",
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "easeIn",
         // damping: 300,
-        }
+      }
     },
   };
 
   return (
     <motion.span
+      // ref={ref}
       className="flex overflow-hidden"
       variants={container}
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true }}
     >
-      {letters.map((letter, index) => (
-        <motion.span key={index} variants={child} className={tailwindclasses}>
+      {letters.map((letter) => (
+        <motion.span key={`${Math.random()}`} variants={child} className={tailwindclasses}>
           {letter === " " ? "\u00A0" : letter}
         </motion.span>
       ))}

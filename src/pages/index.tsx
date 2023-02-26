@@ -10,7 +10,7 @@ import WavyText from '@/components/wavytext';
 
 
 export default function Home() {
-  const [ isLoading, setIsLoading ] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
 
   return (
     <>
@@ -23,31 +23,30 @@ export default function Home() {
       <AnimatePresence>
         {isLoading && (
           <motion.div
-            
             initial={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition = {{ duration: 5 }} 
+            transition={{ duration: 5 }}
           >
             <Loading />
           </motion.div>
         )}
       </AnimatePresence>
-      <motion.div 
+      <motion.div
         transition={{ duration: 0.25 }}
-        className = {isLoading ? 'opacity-0' : 'transition-opacity duration-500 opacity-100'} 
+        className={isLoading ? 'opacity-0' : 'transition-opacity duration-500 opacity-100'}
       >
         <NavigationBar />
         <HeroSection
-          isLoading = {isLoading}
-          setIsLoading = {setIsLoading}
+          isLoading={isLoading}
+          setIsLoading={setIsLoading}
         />
         <div className='flex justify-center items-center h-screen'>
-          <WavyText 
+          <WavyText
             text="ABOUT"
             lowerLetterByPixels={200}
-            delay = {0.5}
-            duration = {0.125}
-            delayChildrenBy = {0.5}
+            delay={0.5}
+            duration={0.125}
+            delayChildrenBy={0.5}
             tailwindclasses="text-[250px] text-gray-100 font-semibold font-sans text-center tracking-[0.5em]"
           />
         </div>
