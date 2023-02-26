@@ -56,27 +56,27 @@ export default function HeroSection({ isLoading, setIsLoading }: Props) {
                         <GrInstagram className='text-white hover:text-gray-300 transition-colors cursor-pointer mr-8' />
                     </a>
                 </div>
-                <div className='absolute z-30 bottom-0 right-0 mr-10 mb-8'>
+                <div className='absolute z-30 bottom-0 right-0 mr-10 mb-8 flex items-start'>
                     <span
                         className='inline-block mr-24 lg:mr-32  text-gray-300 hover:text-gray-400 text-xs cursor-pointer transition-colors'
                         onClick={() => setFeaturedProjectToDisplay(1)}
                     >
                         <p className="mb-2">01</p>
-                        <p>{featuredProjects[1].name}</p>
+                        <p className='max-w-[8vh]'>{featuredProjects[1].name}</p>
                     </span>
                     <span
                         className='inline-block mr-24 lg:mr-32  text-gray-300 hover:text-gray-400 text-xs cursor-pointer transition-colors'
                         onClick={() => setFeaturedProjectToDisplay(2)}
                     >
                         <p className="mb-2">02</p>
-                        <p>{featuredProjects[2].name}</p>
+                        <p className='max-w-[8vh]'>{featuredProjects[2].name}</p>
                     </span>
                     <span
                         className='inline-block mr-24 lg:mr-32  text-gray-300 hover:text-gray-400 text-xs cursor-pointer transition-colors'
                         onClick={() => setFeaturedProjectToDisplay(3)}
                     >
                         <p className="mb-2">03</p>
-                        <p>{featuredProjects[3].name}</p>
+                        <p className='max-w-[8vh]'>{featuredProjects[3].name}</p>
                     </span>
                 </div>
             </div>

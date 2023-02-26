@@ -1,0 +1,4 @@
+
+export const about = <>
+    WeDesign Studio is a renowned architectural and design firm specializing in interior design and architecture. Our founders established the studio in 2022 with a knowledge-based approach to design and architecture. WeDesign Studio has become a leading contemporary design and architecture firm. <br /> Our studio is known for its high-end design, international expertise, and local capabilities, and we work across various project types, including residential, commercial, and hospitality. We provide custom solutions for each project, taking into account its unique context and identity. By listening to clients, users, and contractors and understanding the project scope and ambitions, we create well-conceived design solutions.
+</>

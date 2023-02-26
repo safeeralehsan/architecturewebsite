@@ -8,6 +8,8 @@ interface Props extends HTMLMotionProps<"div"> {
   delay?: number;
   delayChildrenBy?: number;
   duration?: number;
+  childrenTransitionDuration?: number,
+  viewportIntersection?: number | "some" | "all"
 }
 
 const WavyText: FC<Props> = ({
@@ -15,8 +17,10 @@ const WavyText: FC<Props> = ({
   delay = 0,
   delayChildrenBy = 0.1,
   duration = 0.1,
+  childrenTransitionDuration = 0.3,
   lowerLetterByPixels,
-  tailwindclasses
+  tailwindclasses,
+  viewportIntersection = "some"
 }: Props) => {
   const letters = Array.from(text);
 
@@ -33,7 +37,7 @@ const WavyText: FC<Props> = ({
   const child: Variants = {
     hidden: {
       opacity: 1,
-      y: 60,
+      y: lowerLetterByPixels,
       // transition: {
       //     type: "spring",
       //     damping: 10,
@@ -45,6 +49,7 @@ const WavyText: FC<Props> = ({
       y: 0,
       transition: {
         type: "easeIn",
+        duration: childrenTransitionDuration,
         // damping: 300,
       }
     },
@@ -53,11 +58,11 @@ const WavyText: FC<Props> = ({
   return (
     <motion.span
       // ref={ref}
-      className="flex overflow-hidden"
+      className="flex overflow-hidden h-fit"
       variants={container}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true }}
+      viewport={{ once: true, amount: viewportIntersection }}
     >
       {letters.map((letter) => (
         <motion.span key={`${Math.random()}`} variants={child} className={tailwindclasses}>

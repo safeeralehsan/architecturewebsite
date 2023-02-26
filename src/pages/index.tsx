@@ -6,7 +6,7 @@ import Loading from '@/components/loading';
 import NavigationBar from '@/components/navigationBar';
 import HeroSection from '@/components/herosection';
 import WavyText from '@/components/wavytext';
-
+import { about } from '@/utils/content';
 
 
 export default function Home() {
@@ -40,15 +40,48 @@ export default function Home() {
           isLoading={isLoading}
           setIsLoading={setIsLoading}
         />
-        <div className='flex justify-center items-center h-screen'>
-          <WavyText
-            text="ABOUT"
-            lowerLetterByPixels={200}
-            delay={0.5}
-            duration={0.125}
-            delayChildrenBy={0.5}
-            tailwindclasses="text-[250px] text-gray-100 font-semibold font-sans text-center tracking-[0.5em]"
-          />
+        <div className='relative h-[70vh] w-full'>
+          <div className='absolute z-0 flex justify-center items-center w-full h-full'>
+            <WavyText
+              text="ABOUT"
+              lowerLetterByPixels={200}
+              delay={0}
+              duration={0.2}
+              childrenTransitionDuration={0.5}
+              delayChildrenBy={0.5}
+              viewportIntersection={0.4}
+              tailwindclasses="text-[250px] text-gray-100 font-semibold font-sans text-center tracking-[0.5em]"
+            />
+          </div>
+          <div className='absolute z-10 bg-transparent flex justify-center items-center w-full h-full'>
+            <div className='max-w-4xl'>
+              <span>
+                <WavyText
+                  text="Our projects are one of one"
+                  lowerLetterByPixels={100}
+                  delay={1}
+                  delayChildrenBy={1}
+                  duration={0.02}
+                  viewportIntersection="all"
+                  tailwindclasses='text-3xl text-black font-bold'
+                />
+              </span>
+              <motion.div
+                className='overflow-hidden mt-5'
+              >
+                <motion.p
+                  initial={{ opacity: 0, y: 100 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 1, delay: 1 }}
+                  viewport={{ once: true, amount: "some" }}
+                  className="text-base font-light leading-loose"
+                >
+                  {about}
+                </motion.p>
+              </motion.div>
+            </div>
+          </div>
+
         </div>
       </motion.div>
     </>
