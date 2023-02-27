@@ -7,6 +7,7 @@ import NavigationBar from '@/components/navigationBar';
 import HeroSection from '@/components/herosection';
 import WavyText from '@/components/wavytext';
 import { about } from '@/utils/content';
+import HomeCategorySection from '@/components/homeCategorySection';
 
 
 export default function Home() {
@@ -36,10 +37,12 @@ export default function Home() {
         className={isLoading ? 'opacity-0' : 'transition-opacity duration-500 opacity-100'}
       >
         <NavigationBar />
+
         <HeroSection
           isLoading={isLoading}
           setIsLoading={setIsLoading}
         />
+
         <div className='relative h-[70vh] w-full'>
           <div className='absolute z-0 flex justify-center items-center w-full h-full'>
             <WavyText
@@ -81,8 +84,9 @@ export default function Home() {
               </motion.div>
             </div>
           </div>
-
         </div>
+
+        <HomeCategorySection />
       </motion.div>
     </>
   )

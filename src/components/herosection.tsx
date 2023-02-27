@@ -42,6 +42,7 @@ export default function HeroSection({ isLoading, setIsLoading }: Props) {
                             key={Math.random()}
                             text={featuredProjectName}
                             lowerLetterByPixels={60}
+                            duration={0.025}
                             tailwindclasses={'font-serif text-white text-7xl font-semibold my-3 opacity'} />
                         <Link href="/comingsoon">
                             <span className='text-white font-semibold hover:text-gray-300 transition-colors cursor-pointer ml-2 mt-10'>View Project</span>
