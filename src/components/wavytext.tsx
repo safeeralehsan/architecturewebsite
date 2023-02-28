@@ -5,6 +5,7 @@ interface Props extends HTMLMotionProps<"div"> {
   text: string;
   tailwindclasses: string;
   lowerLetterByPixels: number;
+  bringLettersUpto?: number;
   delay?: number;
   delayChildrenBy?: number;
   duration?: number;
@@ -19,6 +20,7 @@ const WavyText: FC<Props> = ({
   duration = 0.1,
   childrenTransitionDuration = 0.3,
   lowerLetterByPixels,
+  bringLettersUpto = 0,
   tailwindclasses,
   viewportIntersection = "some"
 }: Props) => {
@@ -46,7 +48,7 @@ const WavyText: FC<Props> = ({
     },
     visible: {
       opacity: 1,
-      y: 0,
+      y: bringLettersUpto,
       transition: {
         type: "easeIn",
         duration: childrenTransitionDuration,

@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 
 
 
-export default function Loading() {
+export default function Loading({ bgColor = "white" }) {
   const [letterToDisplay, setLetterToDisplay] = useState('W');
   const letterToDisplayIndex = useRef(0);
 
@@ -26,11 +26,11 @@ export default function Loading() {
 
   return (
     <>
-      <div className='absolute z-60 h-screen w-full flex flex-row justify-center items-center'>
-        <p className='absolute z-60 text-[150px] font-mono font-extrabold text-gray-100'>
+      <div className={`absolute z-60 h-full w-full flex flex-row justify-center items-center ${bgColor === 'black' ? 'bg-black' : ''}`}>
+        <p className={`absolute z-60 text-[150px] font-mono font-extrabold ${bgColor === 'black' ? 'text-gray-500 opacity-50' : 'text-gray-100'}`}>
           {letterToDisplay}
         </p>
-        <p className='absolute z-70 text-7xl font-mono font-extrabold'>
+        <p className={`absolute z-70 text-7xl font-mono font-extrabold ${bgColor === 'black' ? 'text-white' : ''}`}>
           {letterToDisplay}
         </p>
       </div>
