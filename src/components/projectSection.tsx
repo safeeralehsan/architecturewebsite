@@ -68,6 +68,7 @@ export default function ProjectsSection() {
                     projects.map((project) => {
                         return (
                             <motion.div
+                                key={Math.random()}
                                 variants={projectTiles}
                                 whileHover={{
                                     scale: 1.02,
