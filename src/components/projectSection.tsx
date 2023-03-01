@@ -2,10 +2,12 @@ import Loading from "@/components/loading";
 import { useEffect, useState } from "react";
 import { motion, Variants } from "framer-motion";
 import Image from "next/image";
-import { projects } from "@/utils/projects";
+import { projectDetails, projects } from "@/utils/projects";
+import DetailedProjectView from "./detailedProjectView";
 
 export default function ProjectsSection() {
     const [areProjectsLoading, setAreProjectsLoading] = useState(true);
+    const [selectedProject, setSelectedProject] = useState<projectDetails>();
 
     const projectsContainer: Variants = {
         hidden: {
@@ -41,18 +43,25 @@ export default function ProjectsSection() {
                     <Loading
                         bgColor="black"
                     /> :
-                    <>
-                        <div className="w-full h-full flex items-center justify-center">
-                            <motion.span
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
-                                transition={{ duration: 2 }}
-                                className="text-5xl text-white opacity-100"
-                            >
-                                WeDesign Studio
-                            </motion.span>
-                        </div>
-                    </>
+                    selectedProject ?
+                        <>
+                            <DetailedProjectView
+                                key={Math.random()}
+                                project={selectedProject}
+                            />
+                        </> :
+                        <>
+                            <div className="w-full h-full flex items-center justify-center">
+                                <motion.span
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    transition={{ duration: 2 }}
+                                    className="text-5xl text-white opacity-100"
+                                >
+                                    WeDesign Studio
+                                </motion.span>
+                            </div>
+                        </>
                 }
             </div>
             <motion.div
@@ -68,12 +77,17 @@ export default function ProjectsSection() {
                     projects.map((project) => {
                         return (
                             <motion.div
-                                key={Math.random()}
+                                key={project.name}
                                 variants={projectTiles}
                                 whileHover={{
                                     scale: 1.02,
                                     filter: "brightness(1.1)"
                                 }}
+                                whileTap={{
+                                    scale: 1,
+                                    filter: "brightness(1)"
+                                }}
+                                onClick={() => setSelectedProject(project)}
                                 className={`relative w-full aspect-square m-0 brightness-75 cursor-pointer`}
                             >
                                 <Image
